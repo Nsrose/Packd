@@ -8,7 +8,7 @@ Three teams:
 3) Marketing / Conceptual
 - involves website, contacting RSF, feedback from users
 
-(google doc)[https://docs.google.com/a/berkeley.edu/document/d/1pTSaqID6JxPohzLH787dy19iM2VnWdEP0j4ula4_LXo/edit]
+[google doc](https://docs.google.com/a/berkeley.edu/document/d/1pTSaqID6JxPohzLH787dy19iM2VnWdEP0j4ula4_LXo/edit)
 
 Team 1
 ======
