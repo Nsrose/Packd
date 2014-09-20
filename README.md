@@ -3,12 +3,7 @@ RSF App Group
 
 Three teams:
 
-1) Android frontend
-
-2) Android backend
-
-3) Marketing / Conceptual
-- involves website, contacting RSF, feedback from users
+<img src="http://i.imgur.com/efmVWEK.jpg">
 
 [Google Doc with team descriptions, organizational diagram, and goals/tasks](https://docs.google.com/a/berkeley.edu/document/d/1pTSaqID6JxPohzLH787dy19iM2VnWdEP0j4ula4_LXo/edit)
 
