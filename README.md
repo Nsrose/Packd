@@ -23,5 +23,6 @@ User preferences and notifications
 Predictive statistics
 
 Team Structure
------------
+============
+Our team is composed of members of the UC Berkeley CS Scholars Program. We are currently Sophomores studying Computer Science and we hope to learn a great deal as we develop our app!
 <img src="/structure.png">
