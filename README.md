@@ -19,7 +19,9 @@ Graphs over time based on past data (the data would need to be saved in our back
 Nth Iteration
 ------------
 More complex functionality:
+
 User preferences and notifications
+
 Predictive statistics
 
 Team Structure
