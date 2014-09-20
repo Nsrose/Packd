@@ -20,9 +20,9 @@ Nth Iteration
 ------------
 More complex functionality:
 
-User preferences and notifications
+- User preferences and notifications
 
-Predictive statistics
+- Predictive statistics
 
 Team Structure
 ============
