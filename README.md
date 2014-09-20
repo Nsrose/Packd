@@ -2,8 +2,8 @@ RSF App Group
 =============
 
 Our Vision
-======
-We want to make the Berkeley Recreational Sports Facility more accessible by providing users with information on the capacity and occupancy of the RSF. We predict that our app will also even out the variance between peak times and quiet times at the RSF as users will have the opportunity to optimize their workout schedules. 
+-------------
+We plan to make the Berkeley Recreational Sports Facility more accessible by providing users with information on the capacity and occupancy of the RSF. We predict that our app will also even out the variance between peak times and quiet times at the RSF as users will have the opportunity to optimize their workout schedules. 
 
 <img src="http://i.imgur.com/efmVWEK.jpg">
 
@@ -21,3 +21,7 @@ Nth Iteration
 More complex functionality:
 User preferences and notifications
 Predictive statistics
+
+Team Structure
+-----------
+<img src="/structure.png">
