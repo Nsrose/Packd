@@ -44,7 +44,7 @@ Workflow:
 
 Actual Code Example (I'm working on a branch called ButtonFix):
 ---------------------------------------------------------------
-$ cd RSF
+$ cd RSF  
 $ git branch #making sure I'm on the master
 $ git checkout master #puts me on the master branch
 $ git pull origin master
@@ -53,4 +53,4 @@ $ git checkout ButtonFix
 $ git add .
 $ git commit -m "fixed the button"
 $ git push origin ButtonFix
-# Submit a pull request: https://help.github.com/articles/creating-a-pull-request
+Submit a pull request: https://help.github.com/articles/creating-a-pull-request
