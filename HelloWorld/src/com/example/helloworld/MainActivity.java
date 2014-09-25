@@ -17,33 +17,66 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        Firebase f = new Firebase("https://android.firebaseio-demo.com/");
+        Firebase f = new Firebase("https://radiant-torch-8194.firebaseio.com/");
+        
         f.addValueEventListener(new ValueEventListener() {
-        	
-        	@Override
-        	public void onDataChange(DataSnapshot arg0) {
-        		TextView newsFeed = (TextView) findViewById(R.id.newsfeed);
-        		newsFeed.setText(arg0.getValue(String.class));
-        	}
-        	
-        	@Override
-        	public void onCancelled(FirebaseError error) {
-        		
-        	}
+        	 /** Add the collected data to the app */
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+            	TextView userDataText = (TextView) findViewById(R.id.user_data_text);
+            	String serverDataText = (String) snapshot.child("user_data_text").getValue();
+            	userDataText.setText(serverDataText);
+            }
+            
+            /** If cancelled, do this */
+            @Override
+            public void onCancelled(FirebaseError error) {
+            	
+            }
         });
+    } 
+    
+    public void setEmpty(View view) {
+    	Firebase e = new Firebase("https://radiant-torch-8194.firebaseio.com/");
+    	e.child("user_data_text").setValue("Empty");
     }
     
-    public void sunny(View view) {
-    	Firebase f = new Firebase("https://android.firebaseio-demo.com/");
-    	f.setValue("Sunny!");
-    	
+    public void setMedium(View view) {
+    	Firebase e = new Firebase("https://radiant-torch-8194.firebaseio.com/");
+    	e.child("user_data_text").setValue("Kinda Crowded");
     }
     
-    public void foggy(View view) {
-    	Firebase f = new Firebase("https://android.firebaseio-demo.com/");
-    	f.setValue("Foggy...");
-    	
+    public void setFull(View view) {
+    	Firebase e = new Firebase("https://radiant-torch-8194.firebaseio.com/");
+    	e.child("user_data_text").setValue("Super Crowded");
     }
+        	
+        
+//        f.addValueEventListener(new ValueEventListener() {
+//        	
+//        	@Override
+//        	public void onDataChange(DataSnapshot arg0) {
+//        		TextView newsFeed = (TextView) findViewById(R.id.newsfeed);
+//        		newsFeed.setText(arg0.getValue(String.class));
+//        	}
+//        	
+//        	@Override
+//        	public void onCancelled(FirebaseError error) {
+//        		
+//        	}
+//        });
+//    }
+//    
+//    public void sunny(View view) {
+//    	Firebase f = new Firebase("https://android.firebaseio-demo.com/");
+//    	f.setValue("Sunny!");
+//    	
+//    }
+//    
+//    public void foggy(View view) {
+//    	Firebase f = new Firebase("https://android.firebaseio-demo.com/");
+//    	f.setValue("Foggy...");
+//    	
 
 
     @Override

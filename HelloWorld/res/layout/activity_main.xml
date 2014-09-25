@@ -8,30 +8,70 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.helloworld.MainActivity" >
 
-    <TextView
-        android:id="@+id/newsfeed"
+    <EditText
+        android:id="@+id/user_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/occupancy" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/users_data"
+        android:textAlignment="center"
+        android:editable="false" />
+
+    <EditText
+        android:id="@+id/user_data_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/user_title_text"
+        android:layout_below="@+id/user_title_text"
+        android:ems="10"
+        android:inputType="text" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/client_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/user_data_text"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:text="@string/client_data" />
 
     <Button
         android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/newsfeed"
-        android:layout_below="@+id/newsfeed"
-        android:layout_marginTop="44dp"
-        android:onClick="sunny"
-        android:text="Sunny" />
+        android:layout_below="@+id/client_title_text"
+        android:layout_centerHorizontal="true"
+        android:onClick="setEmpty"
+        android:text="Empty" />
+
+    <Button
+        android:id="@+id/button3"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="19dp"
+        android:onClick="setFull"
+        android:text="Super Crowded" />
 
     <Button
         android:id="@+id/button2"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button1"
-        android:layout_marginLeft="59dp"
-        android:layout_toRightOf="@+id/button1"
-        android:onClick="foggy"
-        android:text="Foggy" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:onClick="setMedium"
+        android:text="Kinda Crowded" />
 
 </RelativeLayout>

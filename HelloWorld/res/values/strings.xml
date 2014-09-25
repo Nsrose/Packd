@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">NinjaWorkouts</string>
-    <string name="occupancy_title">Current Occupancy:</string>
+    <string name="users_data">The users say it\'s</string>
+    <string name="client_data">You say it\'s</string>
     <string name="action_settings">Settings</string>
     <string name="occupancy">Very high</string>
 
