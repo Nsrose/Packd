@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.firebase.client.Firebase;
+import com.firebase.client.*;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +15,21 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        Firebase f = new Firebase("https://android.firebaseio-demo.com/");
+        f.addValueEventListener(new ValueEventListener() {
+        	
+        	@Override
+        	public void onDataChange(DataSnapshot arg0) {
+        		TextView newsFeed = (TextView) findViewById(R.id.newsfeed);
+        		newsFeed.setText(arg0.getValue(String.class));
+        	}
+        	
+        	@Override
+        	public void onCancelled(FirebaseError error) {
+        		
+        	}
+        });
     }
 
 
