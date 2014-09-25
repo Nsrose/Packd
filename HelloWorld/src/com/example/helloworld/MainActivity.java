@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import com.firebase.client.Firebase;
 import com.firebase.client.*;
 import android.widget.TextView;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -30,6 +31,18 @@ public class MainActivity extends ActionBarActivity {
         		
         	}
         });
+    }
+    
+    public void sunny(View view) {
+    	Firebase f = new Firebase("https://android.firebaseio-demo.com/");
+    	f.setValue("Sunny!");
+    	
+    }
+    
+    public void foggy(View view) {
+    	Firebase f = new Firebase("https://android.firebaseio-demo.com/");
+    	f.setValue("Foggy...");
+    	
     }
 
 
