@@ -1,4 +1,4 @@
-RSF App Group
+Packd App Group
 =============
 
 Our Vision
@@ -35,7 +35,7 @@ Git is super important. It’s what we’ll be using to manage versions and make
 
 Workflow:
 ---------
-1. cd into your RSF folder
+1. cd into your Packd folder
 2. Pull the changes from master into your master branch
 3. Branch off into whatever branch you’re currently working on
 4. Do some work/editing
@@ -44,7 +44,7 @@ Workflow:
 
 Actual Code Example (I'm working on a branch called ButtonFix):
 ---------------------------------------------------------------
-$ cd RSF  
+$ cd Packd  
 $ git branch #making sure I'm on the master  
 $ git checkout master #puts me on the master branch  
 $ git pull origin master  
