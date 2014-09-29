@@ -1,7 +1,7 @@
 Packd App Group
 ===============
 
-<img src="Static_Assets/Simplified_Template.png">
+<img src="Static_Assets/Smaller_Mockup.png">
 
 [Google Doc with team descriptions, organizational diagram, and goals/tasks](https://docs.google.com/a/berkeley.edu/document/d/1pTSaqID6JxPohzLH787dy19iM2VnWdEP0j4ula4_LXo/edit)
 
