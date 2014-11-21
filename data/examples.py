@@ -17,11 +17,11 @@ def show_data():
     Feel free to mess around with this and see what you can do. Try not to
     print the whole table--it has almost 6 million rows."""
     with open("ScansforStudents.csv", "rU") as csvfile:
-        reader = csv.reader(csvfile, delimiter = ' ', quotechar = '|')
+        reader = csv.reader(csvfile, delimiter = ',', quotechar = '|')
         k = 0
         for row in reader:
             print(row)
-            if k == 10:
+            if k == 100:
                 break
             k += 1
 #############
