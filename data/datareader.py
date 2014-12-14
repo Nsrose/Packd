@@ -43,7 +43,7 @@ def week_data(numbers = False):
         "Saturday":{},
     }
     for key in days:
-        print("Processing " + key + ":")
+        # print("Processing " + key + ":")
         days[key] = day_data(key, numbers)
     return days
 
@@ -54,7 +54,7 @@ def day_data(day, numbers):
     day_dict = {}
     hours = open_hours(day)
     for hour in hours:
-        print("Processing " + str(hour))
+        # print("Processing " + str(hour))
         c = get_string(day, hour, numbers)
         day_dict[hour] = c
     return day_dict
@@ -79,13 +79,13 @@ def get_string(day, hour, numbers):
     Sample call: get_string('Monday', 12)
     If numbers is true, will instead return the average number of
     people, not the string."""
-    print("getting day data for " + day)
+    # print("getting day data for " + day)
     day_data = get_entries_by_day(day)
-    print("getting hour data for " + str(hour) + ", " + day)
+    # print("getting hour data for " + str(hour) + ", " + day)
     hour_data = get_entries_by_hour(day_data, hour)
-    print("getting average: ")
+    # print("getting average: ")
     avg_num_ppl = get_average(hour_data)
-    print(avg_num_ppl)
+    # print(avg_num_ppl)
     if numbers:
         return avg_num_ppl
     return heuristic_string(avg_num_ppl)
@@ -98,7 +98,7 @@ def heuristic_string(average):
     elif average >= 130:
         return "Very Crowded"
     elif average >= 60:
-        return "Mildy Crowded"
+        return "Mildly Crowded"
     return "Not Crowded"
 
 
