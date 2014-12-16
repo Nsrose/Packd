@@ -6,3 +6,4 @@
 /build
 ScansforStudents.csv
 *.pyc
+*.class

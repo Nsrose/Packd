@@ -48,8 +48,4 @@ $(document).ready(function(){
         }
         
     })
-
-    
-
-    
 });
