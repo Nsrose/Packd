@@ -16,6 +16,17 @@ body {
     font-family: Raleway, sans-serif;
 }
 
+a {
+    -webkit-transition:0.25s;
+    transition:0.25s;
+    text-decoration: none;
+    color:white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .img_scaled {
     width:100%;
 }
@@ -23,6 +34,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: scroll;
 }
 
 #cover_background {
@@ -37,7 +49,6 @@ body {
 #cover_foreground {
     position: absolute;
     z-index: 100;
-    top: 25%;
     text-align: center;
     width: 100%;
     color: white;
@@ -92,6 +103,7 @@ div#cover_foreground {}
     border-radius: 4px;
     left: 50;
     font-size: 14px;
+    cursor: pointer;
 }
 
 #feedback_submit {
@@ -109,4 +121,60 @@ div#cover_foreground {}
 
 #feedback_title {
     margin-bottom: 10px;
+}
+#info_link {
+    margin-top: 5%;
+}
+#info_title {
+    font-size: 50px;
+}
+#info_description {
+    width: 50%;
+    line-height: 2;
+    text-align: left;
+    text-shadow: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+#cover_foreground_info {
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+    overflow: scroll;
+}
+#info {
+    top: 10%;
+    position: absolute;
+}
+#send_data {
+    margin-top: 5%;
+    text-shadow: none;
+}
+
+#send_data_title {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#send_data_form {
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+    width: 150px;
+    line-height: 1.5;
+}
+
+#send_data_submit {
+    cursor: pointer;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+}
+
+#send_data_submit:hover {
+    text-decoration: underline;
 }
