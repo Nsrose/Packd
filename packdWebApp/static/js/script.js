@@ -6,21 +6,21 @@ var days = {
     "4":"Thursday",
     "5":"Friday",
     "6":"Saturday",
-}
+};
 
 var ints_to_strings = {
     "1":"Not Crowded",
     "2":"Mildly Crowded",
     "3":"Very Crowded",
     "4":"Extreme",
-}
+};
 
 var strings_to_ints = {
     "Not Crowded":1,
     "Mildly Crowded":2,
     "Very Crowded":3,
     "Extreme":4,
-}
+};
 
 // Firebase url
 var fireRef = new Firebase("https://packd.firebaseio.com/");
@@ -28,7 +28,7 @@ var fireRef = new Firebase("https://packd.firebaseio.com/");
 
 //RSF coordinates
 var RSF_LAT = 37.868578;
-var RSF_LONG = -122.262812
+var RSF_LONG = -122.262812;
 
 // How many feedback responses to store before refactoring
 var LOAD_FACTOR = 200;
