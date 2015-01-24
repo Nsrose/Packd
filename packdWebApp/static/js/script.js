@@ -8,10 +8,22 @@ var days = {
     "6":"Saturday",
 }
 
+// Firebase url
+var fireRef = new Firebase("https://packd.firebaseio.com/");
+
+
+//RSF coordinates
 var RSF_LAT = 37.868578;
 var RSF_LONG = -122.262812
 
-/** Converts numeric degrees to radians */
+// How many feedback responses to store before refactoring
+var LOAD_FACTOR = 0;
+
+// Allowable distance from the RSF to vote.
+// var ALLOWED_RADIUS = 0.090;
+var ALLOWED_RADIUS = 10000.00;
+
+// Converts numeric degrees to radians, from stackoverflow
 if (typeof(Number.prototype.toRad) === "undefined") {
   Number.prototype.toRad = function() {
     return this * Math.PI / 180;
@@ -19,7 +31,7 @@ if (typeof(Number.prototype.toRad) === "undefined") {
 }
 
 
-// Distance between two coords, from stackoverflow
+// Distance between two coords, from stackoverflow, in km
 function distance(lon1, lat1, lon2, lat2) {
   var R = 6371; // Radius of the earth in km
   var dLat = (lat2-lat1).toRad();
@@ -28,32 +40,27 @@ function distance(lon1, lat1, lon2, lat2) {
           Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
           Math.sin(dLon/2) * Math.sin(dLon/2); 
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-  var d = R * c; // Distance in km
+  var d = R * c;
   return d;
 }
 
-// Checks the location of the user
-function checkLocation(location) {
-    if (navigator.geolocation) {
-        var latitude = location.coords.latitude;
-        var longitude = location.coords.longitude;
-        var dist = distance(longitude, latitude, RSF_LONG, RSF_LAT);
-        if (dist > 0.090) {
-            alert("You aren't actually at the RSF.");
-        } else {
-            alert("Hey, it worked");
-        }
-    } else {
-        alert("Location services not working");
+// Determines if a rehashing of data is necessary
+function checkLoadFactor(snapshot) {
+    var size = snapshot.child("Size").val();
+    if (size > LOAD_FACTOR) {
+        var feedback = snapshot.child("feedback").val();
+        refactor();
     }
+}
+
+// Refactors the tables for data to restructure json.
+function refactor() {
+
 }
 
 $(document).ready(function(){
     // True iff feedback has not already been sent
     var feedbackSent = false;
-
-    // Here's our firebase url:
-    var fireRef = new Firebase("https://packd.firebaseio.com/");
 
     var d = new Date();
     var dayNumber = d.getDay();
@@ -63,6 +70,7 @@ $(document).ready(function(){
     // This function will be called when the data is changed in the server
     fireRef.on('value', function (snapshot) {
         var dataText = snapshot.child(day).child(hour).val();
+        checkLoadFactor(snapshot);
         if (dataText == null) {
             $("#data").text("Either the RSF is closed, or something went wrong.");
         } else {
@@ -73,21 +81,6 @@ $(document).ready(function(){
         $("#data").text(dataText);
     });
 
-    // Feedback form
-    $("#feedback_submit").click(function() {
-        if (!feedbackSent) {
-            var text = $("#feedback_form").val();
-            var feedbackRef = fireRef.child("feedback");
-            feedbackRef.push({
-                message: text,
-            })
-            feedbackSent = true;
-            alert("Thanks for helping us make our data better!");
-        } else {
-            alert("Thanks, we got it!");    
-        }
-    })
-
     // Feedback data form
     $("#send_data_submit").click(function() {
         if (!feedbackSent) {
@@ -96,4 +89,37 @@ $(document).ready(function(){
             alert("Thanks, we got it!");
         }
     })
+
+    // Checks the location of the user and sends data, if okay.
+    function checkLocation(location) {
+        if (navigator.geolocation) {
+            var latitude = location.coords.latitude;
+            var longitude = location.coords.longitude;
+            var dist = distance(longitude, latitude, RSF_LONG, RSF_LAT);
+            if (dist > ALLOWED_RADIUS) {
+                alert("You aren't actually at the RSF.");
+            } else {
+                var data = null;
+                for (var i = 1; i < 5; i++) {
+                    var radioNum = "radio" + i;
+                    if (document.getElementById(radioNum).checked) {
+                        data = $("#" + radioNum).val();
+                    }
+                }
+                fireRef.once('value', function(snapshot) {
+                    var size = snapshot.child("Size").val();
+                    size += 1;
+                    fireRef.update({Size : size});
+                });
+                var feedbackRef = fireRef.child("feedback");
+                var node = {
+                    "measure":data
+                }
+                feedbackRef.child(day).child(hour).push(node);
+                feedbackSent = true;
+            }
+        } else {
+            alert("Location services not working");
+        }
+    }
 });
