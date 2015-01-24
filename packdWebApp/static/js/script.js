@@ -62,11 +62,18 @@ function distance(lon1, lat1, lon2, lat2) {
 }
 
 // Determines if a rehashing of data is necessary
-function checkLoadFactor(snapshot) {
+function checkLoadFactor(snapshot, day, hour) {
     var size = snapshot.child("Size").val();
     if (size > LOAD_FACTOR) {
         fireRef.update({Locked : true });
         refactor(snapshot);
+    } else {
+        var dataText = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child("current_average").child("measure").val();
+        if (dataText == null) {
+            $("#data").text("Either the RSF is closed, or something went wrong.");
+        } else {
+            $("#data").text(dataText);    
+        }
     }
 }
 
@@ -98,6 +105,12 @@ function refactor(snapshot) {
     }
     fireRef.update({Locked : false });
     fireRef.update({Size : 0});
+    var dataText = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child("current_average").child("measure").val();
+    if (dataText == null) {
+        $("#data").text("Either the RSF is closed, or something went wrong.");
+    } else {
+        $("#data").text(dataText);    
+    }
 }
 
 // Gets the denominator of a list of nodes
@@ -127,16 +140,18 @@ $(document).ready(function(){
     
     // This function will be called when the data is changed in the server
     fireRef.once('value', function (snapshot) {
-        var dataText = snapshot.child(day).child(hour).val();
+        var dataText = null;
         var locked = snapshot.child("Locked").val();
         if (!locked) {
-            checkLoadFactor(snapshot);
-        }
-        if (dataText == null) {
-            $("#data").text("Either the RSF is closed, or something went wrong.");
+            checkLoadFactor(snapshot, day, hour);
         } else {
-            $("#data").text(dataText);    
-        }
+            dataText = snapshot.child(day).child(hour).val();
+            if (dataText == null) {
+                $("#data").text("Either the RSF is closed, or something went wrong.");
+            } else {
+                $("#data").text(dataText);    
+            }
+        } 
     }, function (errorObject) {
         var dataText = "Either the RSF is closed, or something went wrong.";
         $("#data").text(dataText);
