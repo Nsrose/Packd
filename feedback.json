@@ -1,1 +1,754 @@
-{"Monday": {"1700": {"current_average": {"weight": 100, "measure": "Extreme"}}, "2000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1400": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1300": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "600": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1800": {"current_average": {"weight": 100, "measure": "Extreme"}}, "1600": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "700": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "2200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "0": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1500": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1100": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "2300": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}}, "Tuesday": {"1700": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "2000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1400": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1300": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "600": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1800": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "1600": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "700": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "2200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "0": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1500": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "2300": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}}, "Friday": {"1700": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "2000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1400": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1300": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "600": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1600": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "700": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "2200": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1500": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}}, "Wednesday": {"1700": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "2000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1400": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1300": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "600": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1800": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "1600": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "700": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "2200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "0": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1500": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "2300": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}}, "Thursday": {"1700": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "2000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1400": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1300": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "600": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1800": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "1600": {"current_average": {"weight": 100, "measure": "Very Crowded"}}, "700": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "2200": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "0": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1500": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "2300": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}}, "Sunday": {"1700": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2200": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "900": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1400": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1300": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2100": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1500": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1600": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1200": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "800": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1900": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1000": {"current_average": {"weight": 100, "measure": "Not Crowded"}}}, "Saturday": {"1700": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2200": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "900": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1400": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1300": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2100": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1500": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1600": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1200": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "2000": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1100": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "800": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}, "1900": {"current_average": {"weight": 100, "measure": "Not Crowded"}}, "1000": {"current_average": {"weight": 100, "measure": "Mildly Crowded"}}}}
+{
+   "Monday":{
+      "1700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Extreme"
+         }
+      },
+      "2000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1400":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Extreme"
+         }
+      },
+      "1600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "2200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "0":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1500":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "2300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      }
+   },
+   "Tuesday":{
+      "1700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "2000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1400":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "1600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "2200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "0":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1500":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "2300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      }
+   },
+   "Friday":{
+      "1700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "2000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1400":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "2200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1500":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      }
+   },
+   "Wednesday":{
+      "1700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "2000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1400":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "1600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "2200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "0":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1500":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "2300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      }
+   },
+   "Thursday":{
+      "1700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "2000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1400":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "1600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Very Crowded"
+         }
+      },
+      "700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "2200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "0":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1500":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "2300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      }
+   },
+   "Sunday":{
+      "1700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1400":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1500":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      }
+   },
+   "Saturday":{
+      "1700":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1400":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1300":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1500":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1600":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1200":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "2000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1100":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "800":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      },
+      "1900":{
+         "current_average":{
+            "weight":100,
+            "measure":"Not Crowded"
+         }
+      },
+      "1000":{
+         "current_average":{
+            "weight":100,
+            "measure":"Mildly Crowded"
+         }
+      }
+   }
+}

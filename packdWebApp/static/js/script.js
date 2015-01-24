@@ -31,11 +31,14 @@ var RSF_LAT = 37.868578;
 var RSF_LONG = -122.262812
 
 // How many feedback responses to store before refactoring
-var LOAD_FACTOR = 0;
+var LOAD_FACTOR = 200;
+// Uncomment next line for debugging:
+// var LOAD_FACTOR = 5;
 
 // Allowable distance from the RSF to vote.
-// var ALLOWED_RADIUS = 0.090;
-var ALLOWED_RADIUS = 10000.00;
+var ALLOWED_RADIUS = 0.090;
+// Uncomment next line for debugging:
+// var ALLOWED_RADIUS = 10000.00;
 
 // Converts numeric degrees to radians, from stackoverflow
 if (typeof(Number.prototype.toRad) === "undefined") {
@@ -62,29 +65,49 @@ function distance(lon1, lat1, lon2, lat2) {
 function checkLoadFactor(snapshot) {
     var size = snapshot.child("Size").val();
     if (size > LOAD_FACTOR) {
+        fireRef.update({Locked : true });
         refactor(snapshot);
     }
 }
 
 // Refactors the tables for data to restructure json.
 function refactor(snapshot) {
-    var feedback = snapshot.child("feedback").val();
+    var feedback = snapshot.child("-JgOwwFlFThZOqBMUnP0").val();
     for (var day in feedback) {
         for (var hour in feedback[day]) {
             var dataPoints = feedback[day][hour];
-            console.log(dataPoints);
-            var denom = 0;
-            var num = 0;
-            if (dataPoints != "none") {
-                for (var dataPoint in dataPoints) {
-                    denom += 1;
-                    num += weight(dataPoints[dataPoint]["measure"]);
-                }
-                var average = num / denom;
-                console.log(average);
+            var denom = getDenom(dataPoints);
+            var average = 0;
+            for (var dataPoint in dataPoints) {
+                var measureInt = weight(dataPoints[dataPoint]["measure"]);
+                var weightInt = dataPoints[dataPoint]["weight"];
+                average += measureInt * (weightInt / denom);
             }
+            var newMeasure = ints_to_strings[Math.round(average)];
+            var newWeight = denom;
+            var url = "https://packd.firebaseio.com/-JgOwwFlFThZOqBMUnP0/" + day + "/" + hour;
+            var updateRef = new Firebase(url);
+            updateRef.set({
+                "current_average": {
+                    "measure":newMeasure,
+                    "weight":newWeight,
+                }
+            }) 
+
         }
     }
+    fireRef.update({Locked : false });
+    fireRef.update({Size : 0});
+}
+
+// Gets the denominator of a list of nodes
+function getDenom(dataPoints) {
+    var result = 0;
+    for (var d in dataPoints) {
+        var current = dataPoints[d];
+        result += current["weight"];
+    }
+    return result;
 }
 
 // Given a heuristic string, returns an integer value representing
@@ -103,9 +126,12 @@ $(document).ready(function(){
     var day = days[dayNumber];
     
     // This function will be called when the data is changed in the server
-    fireRef.on('value', function (snapshot) {
+    fireRef.once('value', function (snapshot) {
         var dataText = snapshot.child(day).child(hour).val();
-        checkLoadFactor(snapshot);
+        var locked = snapshot.child("Locked").val();
+        if (!locked) {
+            checkLoadFactor(snapshot);
+        }
         if (dataText == null) {
             $("#data").text("Either the RSF is closed, or something went wrong.");
         } else {
@@ -146,9 +172,10 @@ $(document).ready(function(){
                     size += 1;
                     fireRef.update({Size : size});
                 });
-                var feedbackRef = fireRef.child("feedback");
+                var feedbackRef = fireRef.child("-JgOwwFlFThZOqBMUnP0");
                 var node = {
-                    "measure":data
+                    "measure":data,
+                    "weight":1
                 }
                 feedbackRef.child(day).child(hour).push(node);
                 feedbackSent = true;

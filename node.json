@@ -1,0 +1,10 @@
+{
+    "Monday":{
+        "1700":{
+            "current_average":{
+                "weight":100,
+                "measure":"Extreme"
+            }
+        }
+    }
+}
