@@ -149,6 +149,19 @@ $(document).ready(function(){
             if (dataText == null) {
                 $("#data").text("Either the RSF is closed, or something went wrong.");
             } else {
+                console.log("does this happen?")
+                var theColor = "rgba(50, 120, 222, 1)";
+                if (dataText === "Not Crowded") {
+                    theColor = "rgba(50, 120, 222, 0)";
+                } else if (dataText === "Mildly Crowded") {
+                    theColor = "rgba(50, 120, 222, 1)";
+                } else if (dataText === "Very Crowded") {
+                    theColor = "rgba(50, 120, 222, 1)";
+                } else if (dataText === "Extreme") {
+                    theColor = "rgba(50, 120, 222, 1)";
+                }
+                $("#data_container").css("background-color",theColor);
+                $("#title_container").css("background-color",theColor);
                 $("#data").text(dataText);    
             }
         } 

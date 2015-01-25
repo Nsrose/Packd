@@ -1,180 +1,112 @@
-html {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-}
-
 body {
     margin:0px;
     width: 100%;
     height: 100%;
+    background-color:rgba(76, 152, 222, 1);
+    font-family: Raleway,'Helvetica Neue', sans-serif;
+    color:white;
+    text-align:center;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0);
 }
-
-* {
-    font-family: Raleway, sans-serif;
+h1 {
+    font-size:80px;
 }
-
+h2 {
+    font-size:20px;
+}
 a {
     -webkit-transition:0.25s;
     transition:0.25s;
     text-decoration: none;
     color:white;
 }
-
 a:hover {
     text-decoration: underline;
 }
-
 .img_scaled {
     width:100%;
 }
-#cover {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: scroll;
+
+#header {
+    padding:40px;
+    padding-bottom:20px;
 }
 
-#cover_background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(50, 169, 229, 0.65);
+.location_box {
+    margin:auto;
+    width:375px;
+    height:500px;
+    background-color:rgba(255, 255, 255, 1);
+    border-radius:10px;
 }
-
-#cover_foreground {
-    position: absolute;
-    z-index: 100;
-    text-align: center;
-    width: 100%;
-    color: white;
-    text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+#title_container {
+    padding:20px;
+    background-color:rgba(50, 120, 222, 1);
 }
-
-div#cover_foreground {}
-
-#title {
-    font-size: 80px;
+#location {
+    font-size:20px;
 }
-
-#subtitle {
-    margin-top: 50px;
-    font-size: 25px;
+#venue {
+    font-size:25px;
 }
-
 #data_container {
-    margin-top: 40px;
+    height:275px;
+    width:275px;
+    margin:50px;
+    margin-bottom:5px;
+    border-radius:50%;
+    background-color:rgba(50, 120, 222, 1);
 }
-
+#disagree_button p:hover {
+    cursor:pointer;
+    color:rgba(255, 255, 255, 0.5);
+    text-decoration:underline;
+}
 #data {
-    font-size: 36px;
+    padding-top:60px;
+    font-size:50px;
 }
-#footer {
-    position: absolute;
-    color: white;
-    bottom: 0;
-    width: 100%;
-    padding-bottom: 10px;
+#last_updated {
+    color:black;
+    padding-top:10px;
 }
 
-#footer_content {
-    overflow: auto;
-    text-align: center;
-    font-size: 14px;
+#send_data {
+    text-align: left;
+    width: 150px;
+    padding-top:60px;
+    margin:auto;
+    line-height: 1.5;
+    background: rgba(0,0,0,0);
+    margin-bottom:10px;
 }
-
-.footer_item {
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
+#send_data_submit {
+    text-align:center;
+}
+#info_link {
+    margin-top:20px;
 }
 #feedback {
-    position: absolute;
-    z-index: 100;
-    bottom: 20;
+    position:fixed;
+    bottom:40;
+    left:50;
     background: rgba(0,0,0,0.5);
+    width:200px;
     color: white;
     padding: 10px;
     text-align: center;
     border-radius: 4px;
-    left: 50;
     font-size: 14px;
-    cursor: pointer;
+}
+#info_page {
+    max-width:500px;
+    text-align:left;
+    margin:auto;
+}
+#info_page a {
+    text-align:center;
 }
 
-#feedback_submit {
-    cursor: pointer;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    margin-top: 10px;
-    text-align: left;
-    margin-left: 10px;
-}
-
-#feedback_submit:hover {
-    text-decoration: underline;
-}
-
-#feedback_title {
-    margin-bottom: 10px;
-}
-#info_link {
-    margin-top: 5%;
-}
-#info_title {
-    font-size: 50px;
-}
-#info_description {
-    width: 50%;
-    line-height: 2;
-    text-align: left;
-    text-shadow: none;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-}
-#cover_foreground_info {
-    position: absolute;
-    z-index: 100;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-shadow: 0px 1px 0px rgba(255,255,255,.5);
-    overflow: scroll;
-}
-#info {
-    top: 10%;
-    position: absolute;
-}
-#send_data {
-    margin-top: 5%;
-    text-shadow: none;
-}
-
-#send_data_title {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-#send_data_form {
-    text-align: left;
-    margin-right: auto;
-    margin-left: auto;
-    width: 150px;
-    line-height: 1.5;
-}
-
-#send_data_submit {
-    cursor: pointer;
-    -webkit-transition: 0.25s;
-    transition: 0.25s;
-}
-
-#send_data_submit:hover {
-    text-decoration: underline;
+#footer {
+    bottom:5px;
 }
