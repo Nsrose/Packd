@@ -31,14 +31,14 @@ var RSF_LAT = 37.868578;
 var RSF_LONG = -122.262812;
 
 // How many feedback responses to store before refactoring
-var LOAD_FACTOR = 200;
+// var LOAD_FACTOR = 200;
 // Uncomment next line for debugging:
-// var LOAD_FACTOR = 5;
+var LOAD_FACTOR = 5;
 
 // Allowable distance from the RSF to vote.
-var ALLOWED_RADIUS = 0.090;
+// var ALLOWED_RADIUS = 0.090;
 // Uncomment next line for debugging:
-// var ALLOWED_RADIUS = 10000.00;
+var ALLOWED_RADIUS = 10000.00;
 
 // Converts numeric degrees to radians, from stackoverflow
 if (typeof(Number.prototype.toRad) === "undefined") {
@@ -194,6 +194,7 @@ $(document).ready(function(){
                 }
                 feedbackRef.child(day).child(hour).push(node);
                 feedbackSent = true;
+                alert("Thanks, we got your data!");
             }
         } else {
             alert("Location services not working");
