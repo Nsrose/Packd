@@ -35,7 +35,7 @@ a:hover {
 .location_box {
     margin:auto;
     width:375px;
-    height:500px;
+    max-width:100%;
     background-color:rgba(255, 255, 255, 1);
     border-radius:10px;
 }
@@ -51,8 +51,10 @@ a:hover {
 }
 #data_container {
     height:275px;
+    max-height:73%;
     width:275px;
-    margin:50px;
+    max-width:73%;
+    margin:13.5%;
     margin-bottom:5px;
     border-radius:50%;
     background-color:rgba(50, 120, 222, 1);
@@ -69,6 +71,7 @@ a:hover {
 #last_updated {
     color:black;
     padding-top:10px;
+    padding-bottom:10px;
 }
 
 #send_data {
