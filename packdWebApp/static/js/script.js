@@ -29,8 +29,8 @@ var fireRef = new Firebase("https://packd.firebaseio.com/");
 var closedMessage = "RSF is Closed";
 
 //RSF coordinates
-var RSF_LAT = 37.868578;
-var RSF_LONG = -122.262812;
+var RSF_LAT = 37.868501;
+var RSF_LONG = -122.262702;
 
 // How many feedback responses to store before refactoring
 var LOAD_FACTOR = 200;
@@ -38,7 +38,7 @@ var LOAD_FACTOR = 200;
 // var LOAD_FACTOR = 5;
 
 // Allowable distance from the RSF to vote.
-var ALLOWED_RADIUS = 0.090;
+var ALLOWED_RADIUS = 0.050;
 // Uncomment next line for debugging:
 // var ALLOWED_RADIUS = 10000.00;
 
@@ -131,7 +131,35 @@ function weight(string) {
     return strings_to_ints[string];
 }
 
+// Sets a cookie for disallowing multiple votes
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
 $(document).ready(function(){
+    navigator.geolocation.getCurrentPosition(saveLocation);
+
+    // Saves your location for voting reference.
+    function saveLocation(location) {
+        if (navigator.geolocation) {
+            var latitude = location.coords.latitude;
+            var longitude = location.coords.longitude;
+            dist = distance(longitude, latitude, RSF_LONG, RSF_LAT);
+            calculatingDistance = false;
+        } else {
+            alert("Location services not working");
+        }
+    }
+
+    // True iff distance is currently being calculated
+    var calculatingDistance = true;
+
+    // Current distance, in km, to the RSF
+    var dist = Number.MAX_VALUE;
+
     // True iff feedback has not already been sent
     var feedbackSent = false;
 
@@ -175,18 +203,17 @@ $(document).ready(function(){
     // Feedback data form
     $("#send_data_submit").click(function() {
         if (!feedbackSent) {
-            navigator.geolocation.getCurrentPosition(checkLocation);
+            checkLocation();
         } else {
             alert("Thanks, we got it!");
         }
     })
 
     // Checks the location of the user and sends data, if okay.
-    function checkLocation(location) {
-        if (navigator.geolocation) {
-            var latitude = location.coords.latitude;
-            var longitude = location.coords.longitude;
-            var dist = distance(longitude, latitude, RSF_LONG, RSF_LAT);
+    function checkLocation() {
+        if (calculatingDistance) {
+            alert("Hang on, getting your location. Try again in a few seconds");
+        } else {
             if (dist > ALLOWED_RADIUS) {
                 alert("You aren't actually at the RSF.");
             } else {
@@ -209,9 +236,8 @@ $(document).ready(function(){
                 }
                 feedbackRef.child(day).child(hour).push(node);
                 feedbackSent = true;
+                alert("Thanks, we got it!");
             }
-        } else {
-            alert("Location services not working");
-        }
+        } 
     }
 });
