@@ -38,9 +38,9 @@ var LOAD_FACTOR = 200;
 // var LOAD_FACTOR = 5;
 
 // Allowable distance from the RSF to vote.
-// var ALLOWED_RADIUS = 0.050;
+var ALLOWED_RADIUS = 0.050;
 // Uncomment next line for debugging:
-var ALLOWED_RADIUS = 10000.00;
+// var ALLOWED_RADIUS = 10000.00;
 
 // Converts numeric degrees to radians, from stackoverflow
 if (typeof(Number.prototype.toRad) === "undefined") {
