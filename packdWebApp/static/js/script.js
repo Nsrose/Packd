@@ -33,14 +33,14 @@ var RSF_LAT = 37.868501;
 var RSF_LONG = -122.262702;
 
 // How many feedback responses to store before refactoring
-// var LOAD_FACTOR = 200;
+var LOAD_FACTOR = 200;
 // Uncomment next line for debugging:
-var LOAD_FACTOR = 5;
+// var LOAD_FACTOR = 5;
 
 // Allowable distance from the RSF to vote.
-var ALLOWED_RADIUS = 0.050;
+// var ALLOWED_RADIUS = 0.050;
 // Uncomment next line for debugging:
-// var ALLOWED_RADIUS = 10000.00;
+var ALLOWED_RADIUS = 10000.00;
 
 // Converts numeric degrees to radians, from stackoverflow
 if (typeof(Number.prototype.toRad) === "undefined") {
@@ -139,6 +139,31 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + "; " + expires;
 }
 
+// Gets a cookie with name CNAME
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+// Checks whether user has already voted. Returns true if
+// the user already voted.
+function checkCookie(data) {
+    var voteCookie = getCookie("user_data");
+    if (voteCookie != "") {
+        alert("You already voted, thanks!");
+        return true;
+    } else {
+        setCookie("user_data", data, 1);
+        return false;
+    }
+}
+
 $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(saveLocation);
 
@@ -217,26 +242,28 @@ $(document).ready(function(){
             if (dist > ALLOWED_RADIUS) {
                 alert("You aren't actually at the RSF.");
             } else {
-                var data = null;
-                for (var i = 1; i < 5; i++) {
-                    var radioNum = "radio" + i;
-                    if (document.getElementById(radioNum).checked) {
-                        data = $("#" + radioNum).val();
+                if (!checkCookie()) {
+                    var data = null;
+                    for (var i = 1; i < 5; i++) {
+                        var radioNum = "radio" + i;
+                        if (document.getElementById(radioNum).checked) {
+                            data = $("#" + radioNum).val();
+                        }
                     }
-                }
-                fireRef.once('value', function(snapshot) {
-                    var size = snapshot.child("Size").val();
-                    size += 1;
-                    fireRef.update({Size : size});
-                });
-                var feedbackRef = fireRef.child("-JgOwwFlFThZOqBMUnP0");
-                var node = {
-                    "measure":data,
-                    "weight":1
-                }
-                feedbackRef.child(day).child(hour).push(node);
-                feedbackSent = true;
-                alert("Thanks, we got it!");
+                    fireRef.once('value', function(snapshot) {
+                        var size = snapshot.child("Size").val();
+                        size += 1;
+                        fireRef.update({Size : size});
+                    });
+                    var feedbackRef = fireRef.child("-JgOwwFlFThZOqBMUnP0");
+                    var node = {
+                        "measure":data,
+                        "weight":1
+                    }
+                    feedbackRef.child(day).child(hour).push(node);
+                    feedbackSent = true;
+                    alert("Thanks, we got it!");
+                }  
             }
         } 
     }
