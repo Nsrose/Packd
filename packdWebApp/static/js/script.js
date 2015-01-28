@@ -242,18 +242,18 @@ $(document).ready(function(){
             if (dist > ALLOWED_RADIUS) {
                 alert("You aren't actually at the RSF.");
             } else {
-                if (!checkCookie()) {
-                    var data = null;
-                    for (var i = 1; i < 5; i++) {
-                        var radioNum = "radio" + i;
-                        if (document.getElementById(radioNum).checked) {
-                            data = $("#" + radioNum).val();
-                        }
+                var data = null;
+                for (var i = 1; i < 5; i++) {
+                    var radioNum = "radio" + i;
+                    if (document.getElementById(radioNum).checked) {
+                        data = $("#" + radioNum).val();
                     }
+                }
+                if (!checkCookie(data)) {
                     fireRef.once('value', function(snapshot) {
-                        var size = snapshot.child("Size").val();
-                        size += 1;
-                        fireRef.update({Size : size});
+                    var size = snapshot.child("Size").val();
+                    size += 1;
+                    fireRef.update({Size : size});
                     });
                     var feedbackRef = fireRef.child("-JgOwwFlFThZOqBMUnP0");
                     var node = {
@@ -263,7 +263,9 @@ $(document).ready(function(){
                     feedbackRef.child(day).child(hour).push(node);
                     feedbackSent = true;
                     alert("Thanks, we got it!");
-                }  
+                }
+                
+            
             }
         } 
     }
