@@ -22,6 +22,11 @@ var strings_to_ints = {
     "Extreme":4,
 };
 
+var allowed_measures = new Set();
+for (var measure in strings_to_ints) {
+    allowed_measures.add(measure);
+}
+
 // Firebase url
 var fireRef = new Firebase("https://packd.firebaseio.com/");
 
@@ -165,26 +170,6 @@ function checkCookie(data) {
 }
 
 $(document).ready(function(){
-    navigator.geolocation.getCurrentPosition(saveLocation);
-
-    // Saves your location for voting reference.
-    function saveLocation(location) {
-        if (navigator.geolocation) {
-            var latitude = location.coords.latitude;
-            var longitude = location.coords.longitude;
-            dist = distance(longitude, latitude, RSF_LONG, RSF_LAT);
-            calculatingDistance = false;
-        } else {
-            alert("Location services not working");
-        }
-    }
-
-    // True iff distance is currently being calculated
-    var calculatingDistance = true;
-
-    // Current distance, in km, to the RSF
-    var dist = Number.MAX_VALUE;
-
     // True iff feedback has not already been sent
     var feedbackSent = false;
 
@@ -228,19 +213,27 @@ $(document).ready(function(){
     // Feedback data form
     $("#send_data_submit").click(function() {
         if (!feedbackSent) {
-            checkLocation();
+            navigator.geolocation.getCurrentPosition(checkLocation);
         } else {
             alert("Thanks, we got it!");
         }
     })
 
+    // Obscures the screen with a message MESSAGE.
+    function obscure(message) {
+        
+    }
+
     // Checks the location of the user and sends data, if okay.
-    function checkLocation() {
-        if (calculatingDistance) {
-            alert("Hang on, getting your location. Try again in a few seconds");
-        } else {
+    function checkLocation(location) {
+        // obscure("Calculating your location...");
+        if (navigator.geolocation) {
+            var latitude = location.coords.latitude;
+            var longitude = location.coords.longitude;
+            var dist = distance(longitude, latitude, RSF_LONG, RSF_LAT);
             if (dist > ALLOWED_RADIUS) {
                 alert("You aren't actually at the RSF.");
+                // deobscure();
             } else {
                 var data = null;
                 for (var i = 1; i < 5; i++) {
@@ -250,23 +243,30 @@ $(document).ready(function(){
                     }
                 }
                 if (!checkCookie(data)) {
-                    fireRef.once('value', function(snapshot) {
-                    var size = snapshot.child("Size").val();
-                    size += 1;
-                    fireRef.update({Size : size});
-                    });
-                    var feedbackRef = fireRef.child("-JgOwwFlFThZOqBMUnP0");
-                    var node = {
-                        "measure":data,
-                        "weight":1
-                    }
-                    feedbackRef.child(day).child(hour).push(node);
-                    feedbackSent = true;
-                    alert("Thanks, we got it!");
+                    if (!allowed_measures.has(data)) {
+                        alert("Bad data input.");
+                        // deobscure()
+                    } else {
+                       fireRef.once('value', function(snapshot) {
+                        var size = snapshot.child("Size").val();
+                        size += 1;
+                        fireRef.update({Size : size});
+                        });
+                        var feedbackRef = fireRef.child("-JgOwwFlFThZOqBMUnP0");
+                        var node = {
+                            "measure":data,
+                            "weight":1
+                        }
+                        feedbackRef.child(day).child(hour).push(node);
+                        feedbackSent = true;
+                        alert("Thanks, we got it!");
+                        // deobscure(); 
+                    } 
                 }
-                
-            
             }
-        } 
+        } else {
+            alert("Location services not working");
+            // deobscure();
+        }    
     }
 });
