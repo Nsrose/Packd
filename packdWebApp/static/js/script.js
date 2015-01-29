@@ -22,6 +22,13 @@ var strings_to_ints = {
     "Extreme":4,
 };
 
+var strings_to_percents = {
+    "Not Crowded":"Not Crowded: 0% - 25%",
+    "Mildly Crowded":"Mildly Crowded: 26% - 65%",
+    "Very Crowded": "Very Crowded: 66% - 89%",
+    "Extreme": "Extreme: 89% - 100%",
+}
+
 var allowed_measures = new Set();
 for (var measure in strings_to_ints) {
     allowed_measures.add(measure);
@@ -32,6 +39,9 @@ var fireRef = new Firebase("https://packd.firebaseio.com/");
 
 // Message on Closed or Error
 var closedMessage = "RSF is Closed";
+
+// If true, message will display relative percentage of crowdedness.
+var USE_PERCENTS = true;
 
 //RSF coordinates
 var RSF_LAT = 37.868501;
@@ -78,8 +88,10 @@ function checkLoadFactor(snapshot, day, hour) {
         var dataText = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child("current_average").child("measure").val();
         if (dataText == null) {
             $("#data").text(closedMessage);
+        } else if (USE_PERCENTS) {
+            $("#data").text(strings_to_percents[dataText]);    
         } else {
-            $("#data").text(dataText);    
+            $("#data").text(dataText);
         }
     }
 }
@@ -115,8 +127,10 @@ function refactor(snapshot) {
     var dataText = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child("current_average").child("measure").val();
     if (dataText == null) {
         $("#data").text(closedMessage);
+    } else if (USE_PERCENTS) {
+        $("#data").text(strings_to_percents[dataText]);    
     } else {
-        $("#data").text(dataText);    
+        $("#data").text(dataText);
     }
 }
 
@@ -202,7 +216,12 @@ $(document).ready(function(){
                 // }
                 $("#data_container").css("background-color",theColor);
                 $("#title_container").css("background-color",theColor);
-                $("#data").text(dataText);    
+                if (USE_PERCENTS) {
+                    var dataWithPercent = strings_to_percents[dataText];
+                    $("#data").text(dataWithPercent);        
+                } else {
+                    $("#data").text(dataText);        
+                }
             }
         } 
     }, function (errorObject) {

@@ -65,8 +65,9 @@ a:hover {
     text-decoration:underline;
 }
 #data {
-    padding-top:60px;
-    font-size:50px;
+    padding-top: 30px;
+    font-size: 45px;
+    width: 270px;
 }
 #last_updated {
     color:black;
