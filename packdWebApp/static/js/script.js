@@ -213,6 +213,7 @@ $(document).ready(function(){
     // Feedback data form
     $("#send_data_submit").click(function() {
         if (!feedbackSent) {
+            obscure("Calculating your location...");
             navigator.geolocation.getCurrentPosition(checkLocation);
         } else {
             alert("Thanks, we got it!");
@@ -221,19 +222,24 @@ $(document).ready(function(){
 
     // Obscures the screen with a message MESSAGE.
     function obscure(message) {
-        
+        $(".obscure_window_container").fadeIn(200);
+        $(".obscure_window_text").text(message);
+    }
+
+    // Deobscures the screen.
+    function deobscure() {
+        $(".obscure_window_container").fadeOut(200);
     }
 
     // Checks the location of the user and sends data, if okay.
     function checkLocation(location) {
-        // obscure("Calculating your location...");
         if (navigator.geolocation) {
             var latitude = location.coords.latitude;
             var longitude = location.coords.longitude;
             var dist = distance(longitude, latitude, RSF_LONG, RSF_LAT);
             if (dist > ALLOWED_RADIUS) {
                 alert("You aren't actually at the RSF.");
-                // deobscure();
+                deobscure();
             } else {
                 var data = null;
                 for (var i = 1; i < 5; i++) {
@@ -245,7 +251,7 @@ $(document).ready(function(){
                 if (!checkCookie(data)) {
                     if (!allowed_measures.has(data)) {
                         alert("Bad data input.");
-                        // deobscure()
+                        deobscure();
                     } else {
                        fireRef.once('value', function(snapshot) {
                         var size = snapshot.child("Size").val();
@@ -260,13 +266,13 @@ $(document).ready(function(){
                         feedbackRef.child(day).child(hour).push(node);
                         feedbackSent = true;
                         alert("Thanks, we got it!");
-                        // deobscure(); 
+                        deobscure();
                     } 
                 }
             }
         } else {
             alert("Location services not working");
-            // deobscure();
+            deobscure();
         }    
     }
 });

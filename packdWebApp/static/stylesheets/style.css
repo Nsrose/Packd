@@ -113,3 +113,26 @@ a:hover {
 #footer {
     bottom:5px;
 }
+.obscure_window_container {
+    width: 375px;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 999;
+    left: 50%;
+    border-radius: 10px;
+    display: none;
+}
+
+.obscure_window_text {
+    position: absolute;
+    left: -50%;
+    background: rgba(0,0,0,0.7);
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    border-radius: 10px;
+    padding-top: 50%;
+    font-size: 20px;
+    overflow: hidden;
+}
