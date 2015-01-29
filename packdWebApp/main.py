@@ -34,7 +34,14 @@ class InfoHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template("info.html")
         self.response.out.write(template.render(template_values))
 
+class TeamHandler(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = jinja_environment.get_template("team.html")
+        self.response.out.write(template.render(template_values))
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/info', InfoHandler),
+    ('/team', TeamHandler),
 ], debug=True)
