@@ -1,0 +1,222 @@
+body {
+    margin:0px;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(76, 152, 222, 1);
+    font-family: Raleway,'Helvetica Neue', sans-serif;
+    color:white;
+    text-align:center;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0);
+}
+h1 {
+    font-size:80px;
+}
+h2 {
+    font-size:20px;
+}
+a {
+    -webkit-transition:0.25s;
+    transition:0.25s;
+    text-decoration: none;
+    color:white;
+}
+a:hover {
+    text-decoration: underline;
+}
+.img_scaled {
+    width:100%;
+}
+
+#header {
+    padding:40px;
+    padding-bottom:20px;
+}
+
+.location_box {
+    margin:auto;
+    width:375px;
+    max-width:100%;
+    background-color:rgba(255, 255, 255, 1);
+    border-radius:10px;
+}
+#title_container {
+    padding:20px;
+    background-color:rgba(50, 120, 222, 1);
+}
+#location {
+    font-size:20px;
+}
+#venue {
+    font-size:25px;
+}
+#data_container {
+    height:275px;
+    max-height:73%;
+    width:275px;
+    max-width:73%;
+    margin:13.5%;
+    margin-bottom:5px;
+    border-radius:50%;
+    background-color:rgba(50, 120, 222, 1);
+    position: relative;
+}
+#disagree_button p:hover {
+    cursor:pointer;
+    color:rgba(255, 255, 255, 0.5);
+    text-decoration:underline;
+}
+#data {
+    top: 70px;
+    font-size: 25px;
+    width: 270px;
+    position: absolute;
+}
+#last_updated {
+    color:black;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+#send_data {
+    text-align: left;
+    width: 150px;
+    padding-top:60px;
+    margin:auto;
+    line-height: 1.5;
+    background: rgba(0,0,0,0);
+    margin-bottom:10px;
+}
+#send_data_submit {
+    text-align:center;
+}
+#info_link {
+    margin-top:20px;
+}
+#feedback {
+    position:fixed;
+    bottom:40;
+    left:50;
+    background: rgba(0,0,0,0.5);
+    width:200px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 14px;
+}
+#info_page {
+    max-width:500px;
+    text-align:left;
+    margin:auto;
+}
+#info_page a {
+    text-align:center;
+}
+
+#footer {
+    bottom:5px;
+}
+.obscure_window_container {
+    width: 375px;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 999;
+    left: 50%;
+    border-radius: 10px;
+    display: none;
+}
+
+.obscure_window_text {
+    position: absolute;
+    left: -50%;
+    background: rgba(0,0,0,0.7);
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    border-radius: 10px;
+    padding-top: 50%;
+    font-size: 20px;
+    overflow: hidden;
+}
+#info_link_container {
+}
+
+#team_link {
+    margin-top: 10px;
+}
+#links_container {
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+}
+#team_title {
+    font-size: 80px;
+}
+.team_box_picture {
+    width: 50px;
+    overflow: auto;
+    border-radius: 150px;
+    display: inline-block;
+}
+
+#team_container {
+    /* padding: 15px; */
+    overflow: auto;
+}
+
+.team_box_header {
+    padding: 20px; background-color: rgba(50, 120, 222, 1);
+    overflow: auto;
+    text-align: left;
+}
+
+.team_box { width: 375px; max-width: 100%; background-color: rgba(255, 255, 255, 1); border-radius: 10px;
+    display: inline-block;
+    margin-left: 7.5px;
+    margin-top: 40px;
+    margin-right: 7.5px;
+}
+.team_box_name {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.team_box_description {
+    color: black;
+    text-align: left;
+    padding: 20px;
+    line-height: 2;
+    font-size: 15px;
+}
+.team_box_role {
+    display: inline-block;
+    font-size: 13px;
+    margin-left: 40px;
+}
+#go_back {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+#team_box_name_ollie {}
+
+#team_box_role_ollie {
+    margin-left: 1px;
+}
+#team_box_role_jessica {
+    margin-left: 0px;
+}
+#disagree_button {
+    position: absolute;
+    bottom: 20;
+    text-align: center;
+    width: 100%;
+}
+#percentage {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 100px;
+    font-size: 30px;
+}
