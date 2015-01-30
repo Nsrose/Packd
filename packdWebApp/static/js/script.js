@@ -23,10 +23,10 @@ var strings_to_ints = {
 };
 
 var strings_to_percents = {
-    "Not Crowded":"Not Crowded: 0% - 25%",
-    "Mildly Crowded":"Mildly Crowded: 26% - 65%",
-    "Very Crowded": "Very Crowded: 66% - 89%",
-    "Extreme": "Extreme: 89% - 100%",
+    "Not Crowded":"0% - 25%",
+    "Mildly Crowded":"26% - 65%",
+    "Very Crowded": "66% - 89%",
+    "Extreme": "89% - 100%",
 }
 
 var allowed_measures = new Set();
@@ -89,10 +89,9 @@ function checkLoadFactor(snapshot, day, hour) {
         if (dataText == null) {
             $("#data").text(closedMessage);
         } else if (USE_PERCENTS) {
-            $("#data").text(strings_to_percents[dataText]);    
-        } else {
-            $("#data").text(dataText);
+            $("#percentage").text(strings_to_percents[dataText]);
         }
+        $("#data").text(dataText);
     }
 }
 
@@ -128,10 +127,9 @@ function refactor(snapshot) {
     if (dataText == null) {
         $("#data").text(closedMessage);
     } else if (USE_PERCENTS) {
-        $("#data").text(strings_to_percents[dataText]);    
-    } else {
-        $("#data").text(dataText);
+        $("#percentage").text(strings_to_percents[dataText]);
     }
+    $("#data").text(dataText);
 }
 
 // Gets the denominator of a list of nodes
@@ -217,11 +215,10 @@ $(document).ready(function(){
                 $("#data_container").css("background-color",theColor);
                 $("#title_container").css("background-color",theColor);
                 if (USE_PERCENTS) {
-                    var dataWithPercent = strings_to_percents[dataText];
-                    $("#data").text(dataWithPercent);        
-                } else {
-                    $("#data").text(dataText);        
+                    var percent = strings_to_percents[dataText];
+                    $("#percentage").text(percentage);        
                 }
+                $("#data").text(dataText);        
             }
         } 
     }, function (errorObject) {

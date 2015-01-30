@@ -5,6 +5,7 @@ $(document).ready(function(){
 	$("#disagree_button").click(function() {
 		$("#disagree").toggle();
 		$("#data").toggle();
+        $("#percentage").toggle();
 	});
 	// $("#data_container").click(generateGraph());
 })

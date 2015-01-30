@@ -58,6 +58,7 @@ a:hover {
     margin-bottom:5px;
     border-radius:50%;
     background-color:rgba(50, 120, 222, 1);
+    position: relative;
 }
 #disagree_button p:hover {
     cursor:pointer;
@@ -65,9 +66,10 @@ a:hover {
     text-decoration:underline;
 }
 #data {
-    padding-top: 30px;
-    font-size: 45px;
+    top: 70px;
+    font-size: 30px;
     width: 270px;
+    position: absolute;
 }
 #last_updated {
     color:black;
@@ -204,4 +206,17 @@ a:hover {
 }
 #team_box_role_jessica {
     margin-left: 0px;
+}
+#disagree_button {
+    position: absolute;
+    bottom: 20;
+    text-align: center;
+    width: 100%;
+}
+#percentage {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 100px;
+    font-size: 30px;
 }
