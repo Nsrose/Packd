@@ -88,10 +88,12 @@ function checkLoadFactor(snapshot, day, hour) {
         var dataText = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child("current_average").child("measure").val();
         if (dataText == null) {
             $("#data").text(closedMessage);
+            return;
         } else if (USE_PERCENTS) {
             $("#percentage").text(strings_to_percents[dataText]);
+            
         }
-        $("#data").text(dataText);
+        $("#data").text(dataText);  
     }
 }
 
@@ -126,6 +128,7 @@ function refactor(snapshot) {
     var dataText = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child("current_average").child("measure").val();
     if (dataText == null) {
         $("#data").text(closedMessage);
+        return;
     } else if (USE_PERCENTS) {
         $("#percentage").text(strings_to_percents[dataText]);
     }
