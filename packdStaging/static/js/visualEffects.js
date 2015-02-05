@@ -1,11 +1,25 @@
+generateGraph();
+
 $(document).ready(function(){
 
 	$("#time").text(new Date());
-	$("#disagree").toggle();
+	$("#disagree").hide();
 	$("#disagree_button").click(function() {
-		$("#disagree").toggle();
-		$("#data").toggle();
-        $("#percentage").toggle();
+		$("#data_container").show();
+		$("#future_graph").hide();
+		$("#disagree").show();
+		$("#data").hide();
+        $("#percentage").hide();
 	});
-	// $("#data_container").click(generateGraph());
+	$("#current_button").click(function() {
+		$("#data_container").show();
+		$("#future_graph").hide();
+		$("#disagree").hide();
+		$("#data").show();
+        $("#percentage").show();
+	});
+	$("#predict_button").click(function() {
+		$("#future_graph").show();		
+		$("#data_container").hide();
+	});
 })
