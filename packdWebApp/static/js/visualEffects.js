@@ -1,8 +1,8 @@
 generateGraph();
 
 $(document).ready(function(){
-
 	$("#time").text(new Date());
+	// Buttons and Hidden Divs
 	$("#disagree").hide();
 	$("#disagree_button").click(function() {
 		$("#data_container").show();
