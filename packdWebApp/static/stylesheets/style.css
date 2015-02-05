@@ -68,10 +68,10 @@ a:hover {
 /*   MAIN SECTION   */
 #info {
     background-color:rgba(255, 255, 255, 1);
+    padding:15px;
 }
 #buttons {
-    padding:15px;
-    padding-bottom:50px;
+    padding-bottom:20px;
     position:relative;
 }
 .btn-group .btn {
@@ -79,11 +79,10 @@ a:hover {
 }
 #data_container {
     height:275px;
-    max-height:73%;
+    max-height:79%;
     width:275px;
-    max-width:73%;
-    margin-left:13.5%;
-    margin-right:13.5%;
+    max-width:79%;
+    margin:auto;
     border-radius:50%;
     background-color:rgba(50, 120, 222, 1);
     position: relative;
@@ -133,6 +132,10 @@ a:hover {
     text-align: center;
     border-radius: 4px;
     font-size: 14px;
+}
+/* GRAPH CSS */
+#myChart {
+    width:100%;
 }
 /*     END OF BOX CSS     */
 

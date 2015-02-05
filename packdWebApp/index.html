@@ -10,8 +10,9 @@
     <script src="static/js/jquery-1.9.1.js"></script>
     <script src="static/js/script-min.js"></script>
     <script src="static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="static/js/visualEffects.js"></script>
+    <script src="static/js/chart.js"></script>
     <script src="static/js/graph.js"></script>
+    <script src="static/js/visualEffects.js"></script>
 </head>
 <body>
 			<div id="fb-root"></div>
@@ -47,18 +48,10 @@
 			    				<div class="btn-group btn-group-justified" role="group" aria-label="View Mode">
 								  <button type="button" class="btn btn-default" id="disagree_button">Feedback</button>
 								  <button type="button" class="btn btn-default" id="current_button">Current</button>
-								  <button type="button" class="btn btn-default" id="graph_button">Predict</button>
+								  <button type="button" class="btn btn-default" id="predict_button">Predict</button>
 								</div>
-		<!--     				    <div id="disagree_button">
-			                		<p>Toggle 
-			                		<br>Feedback Mode</p>
-			                	</div>
-			                	<div id="future_button">
-		    						<p>Toggle 
-			                		<br>Future Mode</p>
-			                	</div> -->
 		    				</div>
-		            		<div id="data_container">
+		            		<div id="data_container"> <!-- the circle -->
 		                		<div id="data"></div>
                                 <div id="percentage"></div>
 								<div id="disagree">
@@ -71,6 +64,9 @@
 						    			</form>	        			<div id="send_data_submit" class="btn btn-primary">Submit</div>
 									</div>
 			                	</div>
+		                	</div>
+		                	<div id="future_graph">
+		                		<canvas id="myChart" height="275"></canvas>
 		                	</div>
 		                	<div id="last_updated">
 		                		Last updated: 
