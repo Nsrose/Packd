@@ -27,7 +27,7 @@ function generateGraph() {
         var prev_int_val;
         for (var key in dayData) {
             cur_int_val = strings_to_ints[dayData[key]["current_average"]["measure"]];
-            if (key > hour 
+            if (key >= hour 
                     && cur_int_val != y_axis_values[y_axis_values.length - 1]) {
                 x_axis_values.push(key);
                 y_axis_values.push(cur_int_val);
@@ -38,7 +38,7 @@ function generateGraph() {
         datasets: [
             {
                 label: "My First dataset",
-                fillColor: "rgba(50, 120, 222, 0.5)",
+                fillColor: "rgba(41, 128, 185,0.5)",
                 data: y_axis_values,
             },
         ]};

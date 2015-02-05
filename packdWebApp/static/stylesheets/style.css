@@ -39,7 +39,7 @@ a:hover {
     color:white;
     width:375px;
     max-width:100%;
-    box-shadow: 0 0 10px #3B87CD;
+    box-shadow: 0 0 10px rgb(41, 128, 185);
 }
 
 /*   TOP BAR   */
