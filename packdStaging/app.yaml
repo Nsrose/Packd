@@ -1,4 +1,4 @@
-application: packdberkeley
+application: packdstaging2
 module: default
 version: 1
 runtime: python27
