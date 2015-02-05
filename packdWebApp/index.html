@@ -11,6 +11,7 @@
     <script src="static/js/script-min.js"></script>
     <script src="static/bootstrap/js/bootstrap.min.js"></script>
     <script src="static/js/visualEffects.js"></script>
+    <script src="static/js/graph.js"></script>
 </head>
 <body>
 			<div id="fb-root"></div>
@@ -22,9 +23,9 @@
 			  fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));</script>
 		<div class="container-fluid">
-		    <div class="row">
+		    <div class="row" id="header">
 		    	<div class="col-md-4 col-md-offset-4">
-		    		<div id="header">
+		    		<div>
 	        			<h1>PACKD</h1>
 	        			<h2>Spend your time working out, not waiting!</h2>
         			</div>
@@ -37,10 +38,26 @@
                     </div>
 		    		<div class="location_box">
 		    			<div id="title_container">
+		    				<div id="rsf_image"><img src="static/images/rsf_pic.jpg"></div>
 		    				<div id="location">UC Berkeley</div>
 		    				<div id="venue">Recreational Sports Facility</div>
 		    			</div>
 		    			<div id="info">
+		    				<div id="buttons">
+			    				<div class="btn-group btn-group-justified" role="group" aria-label="View Mode">
+								  <button type="button" class="btn btn-default" id="disagree_button">Feedback</button>
+								  <button type="button" class="btn btn-default" id="current_button">Current</button>
+								  <button type="button" class="btn btn-default" id="graph_button">Predict</button>
+								</div>
+		<!--     				    <div id="disagree_button">
+			                		<p>Toggle 
+			                		<br>Feedback Mode</p>
+			                	</div>
+			                	<div id="future_button">
+		    						<p>Toggle 
+			                		<br>Future Mode</p>
+			                	</div> -->
+		    				</div>
 		            		<div id="data_container">
 		                		<div id="data"></div>
                                 <div id="percentage"></div>
@@ -53,10 +70,6 @@
 						        			<input type="radio" id="radio4" name="measure" value="Extreme"> Extreme</input>
 						    			</form>	        			<div id="send_data_submit" class="btn btn-primary">Submit</div>
 									</div>
-			                	</div>
-			                	<div id="disagree_button">
-			                		<p>(Were we right? Click
-			                		<br>here to tell us.)</p>
 			                	</div>
 		                	</div>
 		                	<div id="last_updated">
@@ -79,7 +92,7 @@
                             </div> -->
                         </div>
 		    			<br>
-		    			<div class="fb-like" data-href="http://packdwebapp.appspot.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div><br><br>
+		    			<div class="fb-like" data-href="http://packdberkeley.appspot.com" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div><br><br>
 		    		</div>
 		    	</div>
 		    </div>

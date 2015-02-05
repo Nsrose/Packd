@@ -1,11 +1,16 @@
 $(document).ready(function(){
 
 	$("#time").text(new Date());
-	$("#disagree").toggle();
+	$("#disagree").hide();
 	$("#disagree_button").click(function() {
-		$("#disagree").toggle();
-		$("#data").toggle();
-        $("#percentage").toggle();
+		$("#disagree").show();
+		$("#data").hide();
+        $("#percentage").hide();
 	});
-	// $("#data_container").click(generateGraph());
+	$("#current_button").click(function() {
+		$("#disagree").hide();
+		$("#data").show();
+        $("#percentage").show();
+	});
+	// $("#graph_button").click(generateGraph());
 })

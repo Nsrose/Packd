@@ -10,7 +10,7 @@ var days = {
     "6":"Saturday",
 };
 
-// Generates graph for X is hours of day. Y is 
+// Generates graph for next 6 hours. X is hours of day. Y is 
 // values from Dynamic data. 
 function generateGraph() {
 	var d = new Date();
