@@ -27,8 +27,7 @@ function generateGraph() {
         var prev_int_val;
         for (var key in dayData) {
             cur_int_val = strings_to_ints[dayData[key]["current_average"]["measure"]];
-            if (key >= hour 
-                    && cur_int_val != y_axis_values[y_axis_values.length - 1]) {
+            if (key >= hour) {
                 x_axis_values.push(key);
                 y_axis_values.push(cur_int_val);
             }
