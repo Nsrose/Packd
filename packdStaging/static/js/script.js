@@ -111,9 +111,10 @@ function checkLoadFactor(snapshot, day, hour) {
         } else if (USE_PERCENTS) {
             $("#percentage").text(strings_to_percents[dataText]);
         }
+        console.log(dataText);
         if (dataText == "Mildly Crowded") {
             $("#data").text("Fairly Empty"); 
-        } else if (dataText = "Not Crowded") {
+        } else if (dataText == "Not Crowded") {
             $("#data").text("Almost Empty");
         }
             else {

@@ -2,27 +2,37 @@
 <head>
     <title>PACKD</title>
     <link href="http://fonts.googleapis.com/css?family=Raleway:200,300,400" rel="stylesheet" type="text/css">
+    <link rel="canonical" href="http://packd.org/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
+	<!-- Facebook Meta Tags -->
+	<meta property="og:title" content="How PACKD is the RSF Right Now?">
+	<meta property="og:image" content="static/images/FB-Thumbnail.png">
+	<meta property="og:url" content="http://packd.org/">
+	<meta property="og:site_name" content="PACKD">
+	<meta property="og:description" content="As Berkeley students, we always found ourselves wondering how busy the gym is (and how busy it will be), so we made an app to tell you that!">
+	<!-- ===================== -->
 	<link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="static/stylesheets/style.css">
     <script src="https://cdn.firebase.com/js/client/1.0.24/firebase.js"></script>
     <script src="static/js/jquery-1.9.1.js"></script>
-    <script src="static/js/script.js"></script>
+    <script src="static/js/script-min2.js"></script>
     <script src="static/bootstrap/js/bootstrap.min.js"></script>
     <script src="static/js/Chart.js"></script>
     <script src="static/js/graph.js"></script>
     <script src="static/js/visualEffects.js"></script>
 </head>
 <body>
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Required for FB Like Button -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- ============================= -->
 		<div class="container-fluid">
 		    <div class="row" id="header">
 		    	<div class="col-md-4 col-md-offset-4">
@@ -88,7 +98,7 @@
                             </div> -->
                         </div>
 		    			<br>
-		    			<div class="fb-like" data-href="http://packdberkeley.appspot.com" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div><br><br>
+		    			<div class="fb-like" data-href="http://packd.org/" data-layout="button_count" data-action="recommend" data-show-faces="true" data-share="true"></div><br><br>
 		    		</div>
 		    	</div>
 		    </div>
