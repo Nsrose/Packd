@@ -78,6 +78,24 @@ function distance(lon1, lat1, lon2, lat2) {
   return d;
 }
 
+// Changes the color of certain divs based on
+// The business message in data (value).
+function applyColors(value) {
+    var colorString = "rgba(50, 120, 222,";
+    if (value == "Not Crowded") {
+        colorString = "rgba(52, 152, 219,";
+    } else if (value == "Mildly Crowded") {
+        colorString = "rgba(41, 128, 185,";
+    } else if (value == "Very Crowded") {
+        colorString = "rgba(155, 89, 182,";    
+    } else if (value == "Extreme") {
+        colorString = "rgba(44, 62, 80,";
+    }
+    $("#title_container").css("background-color", colorString + " 0.7)");
+    $("#data_container").css("background-color", colorString + "1)");
+    $("body").css("background-color", colorString + "1)");
+}
+
 // Determines if a rehashing of data is necessary
 function checkLoadFactor(snapshot, day, hour) {
     var size = snapshot.child("Size").val();
@@ -86,12 +104,22 @@ function checkLoadFactor(snapshot, day, hour) {
         refactor(snapshot);
     } else {
         var dataText = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child("current_average").child("measure").val();
+        applyColors(dataText);
         if (dataText == null) {
             $("#data").text(closedMessage);
+            return;
         } else if (USE_PERCENTS) {
             $("#percentage").text(strings_to_percents[dataText]);
         }
-        $("#data").text(dataText);
+        console.log(dataText);
+        if (dataText == "Mildly Crowded") {
+            $("#data").text("Fairly Empty"); 
+        } else if (dataText == "Not Crowded") {
+            $("#data").text("Almost Empty");
+        }
+            else {
+            $("#data").text(dataText);  
+        }       
     }
 }
 
@@ -126,6 +154,7 @@ function refactor(snapshot) {
     var dataText = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child("current_average").child("measure").val();
     if (dataText == null) {
         $("#data").text(closedMessage);
+        return;
     } else if (USE_PERCENTS) {
         $("#percentage").text(strings_to_percents[dataText]);
     }
@@ -201,24 +230,16 @@ $(document).ready(function(){
             if (dataText == null) {
                 $("#data").text(closedMessage);
             } else {
-                // console.log("does this happen?")
-                // var theColor = "rgba(50, 120, 222, 1)";
-                // if (dataText === "Not Crowded") {
-                //     theColor = "rgba(50, 120, 222, 1)";
-                // } else if (dataText === "Mildly Crowded") {
-                //     theColor = "rgba(50, 120, 222, 1)";
-                // } else if (dataText === "Very Crowded") {
-                //     theColor = "rgba(50, 120, 222, 1)";
-                // } else if (dataText === "Extreme") {
-                //     theColor = "rgba(50, 120, 222, 1)";
-                // }
-                $("#data_container").css("background-color",theColor);
-                $("#title_container").css("background-color",theColor);
+                applyColors(dataText);
                 if (USE_PERCENTS) {
                     var percent = strings_to_percents[dataText];
                     $("#percentage").text(percentage);        
                 }
-                $("#data").text(dataText);        
+                if (dataText == "Mildly Crowded") {
+                    $("#data").text("Fairly Empty"); 
+                } else {
+                    $("#data").text(dataText);  
+                }
             }
         } 
     }, function (errorObject) {

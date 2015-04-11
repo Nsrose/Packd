@@ -8,8 +8,10 @@
     <link rel="stylesheet" type="text/css" href="static/stylesheets/style.css">
     <script src="https://cdn.firebase.com/js/client/1.0.24/firebase.js"></script>
     <script src="static/js/jquery-1.9.1.js"></script>
-    <script src="static/js/script-min.js"></script>
+    <script src="static/js/script.js"></script>
     <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/Chart.js"></script>
+    <script src="static/js/graph.js"></script>
     <script src="static/js/visualEffects.js"></script>
 </head>
 <body>
@@ -22,9 +24,9 @@
 			  fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));</script>
 		<div class="container-fluid">
-		    <div class="row">
+		    <div class="row" id="header">
 		    	<div class="col-md-4 col-md-offset-4">
-		    		<div id="header">
+		    		<div>
 	        			<h1>PACKD</h1>
 	        			<h2>Spend your time working out, not waiting!</h2>
         			</div>
@@ -37,11 +39,19 @@
                     </div>
 		    		<div class="location_box">
 		    			<div id="title_container">
+		    				<div id="rsf_image"><img src="static/images/rsf_pic.jpg"></div>
 		    				<div id="location">UC Berkeley</div>
 		    				<div id="venue">Recreational Sports Facility</div>
 		    			</div>
 		    			<div id="info">
-		            		<div id="data_container">
+		    				<div id="buttons">
+			    				<div class="btn-group btn-group-justified" role="group" aria-label="View Mode">
+								  <button type="button" class="btn btn-default" id="disagree_button">Feedback</button>
+								  <button type="button" class="btn btn-default" id="current_button">Current</button>
+								  <button type="button" class="btn btn-default" id="predict_button">Predict</button>
+								</div>
+		    				</div>
+		            		<div id="data_container"> <!-- the circle -->
 		                		<div id="data"></div>
                                 <div id="percentage"></div>
 								<div id="disagree">
@@ -54,10 +64,9 @@
 						    			</form>	        			<div id="send_data_submit" class="btn btn-primary">Submit</div>
 									</div>
 			                	</div>
-			                	<div id="disagree_button">
-			                		<p>(Were we right? Click
-			                		<br>here to tell us.)</p>
-			                	</div>
+		                	</div>
+		                	<div id="future_graph">
+		                		<canvas id="myChart" height="275"></canvas>
 		                	</div>
 		                	<div id="last_updated">
 		                		Last updated: 
@@ -79,7 +88,7 @@
                             </div> -->
                         </div>
 		    			<br>
-		    			<div class="fb-like" data-href="http://packdwebapp.appspot.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div><br><br>
+		    			<div class="fb-like" data-href="http://packdberkeley.appspot.com" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div><br><br>
 		    		</div>
 		    	</div>
 		    </div>
