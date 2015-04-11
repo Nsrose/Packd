@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="static/stylesheets/style.css">
     <script src="https://cdn.firebase.com/js/client/1.0.24/firebase.js"></script>
     <script src="static/js/jquery-1.9.1.js"></script>
-    <script src="static/js/script-min2.js"></script>
+    <script src="static/js/script.js"></script>
     <script src="static/bootstrap/js/bootstrap.min.js"></script>
     <script src="static/js/Chart.js"></script>
     <script src="static/js/graph.js"></script>
@@ -25,13 +25,23 @@
 <body>
 <!-- Required for FB Like Button -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1535854626680069',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <!-- ============================= -->
 		<div class="container-fluid">
 		    <div class="row" id="header">
@@ -93,9 +103,9 @@
                             <div id="info_link_container">
                                 <a href="/info">Find out how this works.</a>
                             </div>
-                            <!-- <div id="team_link">
-                                <a href="/team">About us</a>
-                            </div> -->
+                            <div id="team_link">
+                                <a href="/team">About Our Team</a>
+                            </div>
                         </div>
 		    			<br>
 		    			<div class="fb-like" data-href="http://packd.org/" data-layout="button_count" data-action="recommend" data-show-faces="true" data-share="true"></div><br><br>
