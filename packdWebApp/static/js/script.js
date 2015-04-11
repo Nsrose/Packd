@@ -35,9 +35,9 @@ for (var measure in strings_to_ints) {
 }
 
 // Firebase url string
-// var fireString = "https://packd.firebaseio.com/";
+var fireString = "https://packd.firebaseio.com/";
 // Uncomment next line for stage testing:
-var fireString = "https://packdstaging.firebaseio.com/";
+// var fireString = "https://packdstaging.firebaseio.com/";
 
 // Firebase url
 var fireRef = new Firebase(fireString);
@@ -58,12 +58,12 @@ var RSF_LONG = -122.262702;
 var LOAD_FACTOR = 5;
 
 // Allowable distance from the RSF to vote.
-// var ALLOWED_RADIUS = 0.050;
+var ALLOWED_RADIUS = 0.050;
 // Uncomment next line for debugging:
-var ALLOWED_RADIUS = 10000.00;
+// var ALLOWED_RADIUS = 10000.00;
 
 // If true, cookies will be checked before voting:
-var checkCookies = false;
+var checkCookies = true;
 
 // Converts numeric degrees to radians, from stackoverflow
 if (typeof(Number.prototype.toRad) === "undefined") {
@@ -335,9 +335,7 @@ $(document).ready(function(){
                     } else {
                         fireRef.once('value', function(snapshot) {
                             var size = snapshot.child("Size").val();
-                            console.log("Data: " + data);
                             var prevWeight = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child(data).child("weight").val();
-                            console.log("Previous weight: " + prevWeight);
                             size += 1;
                             fireRef.update({Size : size});
                             addData(data, prevWeight);
@@ -357,7 +355,6 @@ $(document).ready(function(){
             day + "/" + hour + "/" + data;
         var updateRef = new Firebase(url);
         var newWeight = prevWeight + 1;
-        console.log("New weight: " + newWeight);
         updateRef.set({
             "measure":data,
             "number":strings_to_ints[data],
