@@ -1,4 +1,5 @@
-var fireRef = new Firebase("https://packd.firebaseio.com/");
+
+var fireRef = new Firebase(fireString);
 
 var days = {
     "0":"Sunday",

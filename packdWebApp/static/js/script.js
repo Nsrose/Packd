@@ -34,8 +34,13 @@ for (var measure in strings_to_ints) {
     allowed_measures.add(measure);
 }
 
+// Firebase url string
+// var fireString = "https://packd.firebaseio.com/";
+// Uncomment next line for stage testing:
+var fireString = "https://packdstaging.firebaseio.com/";
+
 // Firebase url
-var fireRef = new Firebase("https://packd.firebaseio.com/");
+var fireRef = new Firebase(fireString);
 
 // Message on Closed or Error
 var closedMessage = "RSF is Closed";
@@ -48,14 +53,17 @@ var RSF_LAT = 37.868501;
 var RSF_LONG = -122.262702;
 
 // How many feedback responses to store before refactoring
-var LOAD_FACTOR = 200;
+// var LOAD_FACTOR = 200;
 // Uncomment next line for debugging:
-// var LOAD_FACTOR = 5;
+var LOAD_FACTOR = 5;
 
 // Allowable distance from the RSF to vote.
-var ALLOWED_RADIUS = 0.050;
+// var ALLOWED_RADIUS = 0.050;
 // Uncomment next line for debugging:
-// var ALLOWED_RADIUS = 10000.00;
+var ALLOWED_RADIUS = 10000.00;
+
+// If true, cookies will be checked before voting:
+var checkCookies = false;
 
 // Converts numeric degrees to radians, from stackoverflow
 if (typeof(Number.prototype.toRad) === "undefined") {
@@ -111,7 +119,6 @@ function checkLoadFactor(snapshot, day, hour) {
         } else if (USE_PERCENTS) {
             $("#percentage").text(strings_to_percents[dataText]);
         }
-        console.log(dataText);
         if (dataText == "Mildly Crowded") {
             $("#data").text("Fairly Empty"); 
         } else if (dataText == "Not Crowded") {
@@ -126,26 +133,65 @@ function checkLoadFactor(snapshot, day, hour) {
 // Refactors the tables for data to restructure json.
 function refactor(snapshot) {
     var feedback = snapshot.child("-JgOwwFlFThZOqBMUnP0").val();
+    var saved = {};
     for (var day in feedback) {
         for (var hour in feedback[day]) {
-            var dataPoints = feedback[day][hour];
-            var denom = getDenom(dataPoints);
+            // var dataPoints = feedback[day][hour];
+            // var denom = getDenom(dataPoints);
+            // var average = 0;
+            // for (var dataPoint in dataPoints) {
+            //     var measureInt = weight(dataPoints[dataPoint]["measure"]);
+            //     var weightInt = dataPoints[dataPoint]["weight"];
+            //     average += measureInt * (weightInt / denom);
+            // }
+            var slots = feedback[day][hour];
             var average = 0;
-            for (var dataPoint in dataPoints) {
-                var measureInt = weight(dataPoints[dataPoint]["measure"]);
-                var weightInt = dataPoints[dataPoint]["weight"];
+            var denom = getDenom(slots);
+            for (var slot in slots) {
+                var slot_in_question = slots[slot];
+                
+                var saved_element_name = slot_in_question["measure"];
+                var new_save_element = {};
+                new_save_element["measure"] = saved_element_name;
+                new_save_element["weight"] = slot_in_question["weight"];
+                new_save_element["number"] = slot_in_question["number"];
+                saved[saved_element_name] = new_save_element;
+
+                var measureInt = slot_in_question["number"];
+                var weightInt = slot_in_question["weight"];
                 average += measureInt * (weightInt / denom);
             }
             var newMeasure = ints_to_strings[Math.round(average)];
             var newWeight = denom;
-            var url = "https://packd.firebaseio.com/-JgOwwFlFThZOqBMUnP0/" + day + "/" + hour;
+            var url =  fireString + "-JgOwwFlFThZOqBMUnP0/" + day + "/" + hour;
             var updateRef = new Firebase(url);
             updateRef.set({
                 "current_average": {
                     "measure":newMeasure,
+                    "number":strings_to_ints[newMeasure],
                     "weight":newWeight,
-                }
-            }) 
+                },
+                "Not Crowded": {
+                    "measure":"Not Crowded",
+                    "number":saved["Not Crowded"]["number"],
+                    "weight":saved["Not Crowded"]["weight"],
+                },
+                "Mildly Crowded": {
+                    "measure":"Mildly Crowded",
+                    "number":saved["Mildly Crowded"]["number"],
+                    "weight":saved["Mildly Crowded"]["weight"],
+                },
+                "Very Crowded": {
+                    "measure":"Very Crowded",
+                    "number":saved["Very Crowded"]["number"],
+                    "weight":saved["Very Crowded"]["weight"],
+                },
+                "Extreme": {
+                    "measure":"Extreme",
+                    "number":saved["Extreme"]["number"],
+                    "weight":saved["Extreme"]["weight"],
+                },
+            }); 
 
         }
     }
@@ -249,7 +295,7 @@ $(document).ready(function(){
 
     // Feedback data form
     $("#send_data_submit").click(function() {
-        if (!feedbackSent) {
+        if (!feedbackSent || !checkCookies) {
             obscure("Calculating your location...");
             navigator.geolocation.getCurrentPosition(checkLocation);
         } else {
@@ -285,25 +331,20 @@ $(document).ready(function(){
                         data = $("#" + radioNum).val();
                     }
                 }
-                if (!checkCookie(data)) {
+                if (!checkCookie(data) || !checkCookies) {
                     if (!allowed_measures.has(data)) {
                         alert("Bad data input.");
                         deobscure();
                     } else {
-                       fireRef.once('value', function(snapshot) {
-                        var size = snapshot.child("Size").val();
-                        size += 1;
-                        fireRef.update({Size : size});
+                        fireRef.once('value', function(snapshot) {
+                            var size = snapshot.child("Size").val();
+                            console.log("Data: " + data);
+                            var prevWeight = snapshot.child("-JgOwwFlFThZOqBMUnP0").child(day).child(hour).child(data).child("weight").val();
+                            console.log("Previous weight: " + prevWeight);
+                            size += 1;
+                            fireRef.update({Size : size});
+                            addData(data, prevWeight);
                         });
-                        var feedbackRef = fireRef.child("-JgOwwFlFThZOqBMUnP0");
-                        var node = {
-                            "measure":data,
-                            "weight":1
-                        }
-                        feedbackRef.child(day).child(hour).push(node);
-                        feedbackSent = true;
-                        alert("Thanks, we got it!");
-                        deobscure();
                     } 
                 }
             }
@@ -311,5 +352,22 @@ $(document).ready(function(){
             alert("Location services not working");
             deobscure();
         }    
+    }
+
+    // Adds data to the firebase server
+    function addData(data, prevWeight) {
+        var url = fireString + "-JgOwwFlFThZOqBMUnP0/" + 
+            day + "/" + hour + "/" + data;
+        var updateRef = new Firebase(url);
+        var newWeight = prevWeight + 1;
+        console.log("New weight: " + newWeight);
+        updateRef.set({
+            "measure":data,
+            "number":strings_to_ints[data],
+            "weight":newWeight,
+        });
+        feedbackSent = true;
+        alert("Thanks, we got it!");
+        deobscure();
     }
 });
