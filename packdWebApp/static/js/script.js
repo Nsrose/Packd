@@ -133,26 +133,23 @@ function checkLoadFactor(snapshot, day, hour) {
 // Refactors the tables for data to restructure json.
 function refactor(snapshot) {
     var feedback = snapshot.child("-JgOwwFlFThZOqBMUnP0").val();
-    var saved = {};
     for (var day in feedback) {
         for (var hour in feedback[day]) {
-            // var dataPoints = feedback[day][hour];
-            // var denom = getDenom(dataPoints);
-            // var average = 0;
-            // for (var dataPoint in dataPoints) {
-            //     var measureInt = weight(dataPoints[dataPoint]["measure"]);
-            //     var weightInt = dataPoints[dataPoint]["weight"];
-            //     average += measureInt * (weightInt / denom);
-            // }
+            var saved = {};
             var slots = feedback[day][hour];
             var average = 0;
             var denom = getDenom(slots);
             for (var slot in slots) {
-                var slot_in_question = slots[slot];
-                
-                var saved_element_name = slot_in_question["measure"];
                 var new_save_element = {};
-                new_save_element["measure"] = saved_element_name;
+                var slot_in_question = slots[slot];
+                var saved_element_name = slot_in_question["measure"];
+                
+                if (slot == "current_average") {
+                    saved_element_name = "current_average";
+                }
+                
+                new_save_element["measure"] = slot_in_question["measure"];
+                
                 new_save_element["weight"] = slot_in_question["weight"];
                 new_save_element["number"] = slot_in_question["number"];
                 saved[saved_element_name] = new_save_element;
